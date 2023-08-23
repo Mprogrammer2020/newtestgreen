@@ -1,5 +1,5 @@
 # Use a Maven image as the build environment
-FROM openjdk:8-jre-slim
+FROM maven:3.8.4-openjdk-8 AS build
 
 LABEL maintainer="muk214782@gmail.com"
 
@@ -14,7 +14,7 @@ COPY src ./src
 RUN mvn clean install -DskipTests
 
 # Create a smaller runtime image
-FROM adoptopenjdk/openjdk8:jre-slim
+FROM openjdk:8-jre-slim
 
 # Set the working directory
 WORKDIR /app
