@@ -1,5 +1,5 @@
 # Use a Maven image as the build environment
-FROM maven:3.8.4-openjdk-8 AS build
+FROM openjdk:8-jre-slim
 
 LABEL maintainer="muk214782@gmail.com"
 
